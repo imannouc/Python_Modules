@@ -30,9 +30,10 @@ def printRecipeNames():
 # A function that takes a recipe name and print its details.
 def printRecipeDetails(recipeName):
     if recipeName in cookbook:
-        print(f'Recipe for {recipeName}:')
-        # print(f'Ingredients list: {cookbook[recipeName]['ingredients']}')
-        print(cookbook[recipeName])
+        print(f'\nRecipe for {recipeName}:')
+        print(f"\tIngredients list: {cookbook[recipeName]['ingredients']}")
+        print(f"\tTo be eaten for {cookbook[recipeName]['meal']}")
+        print(f"\tTakes {cookbook[recipeName]['prep_time']} minutes of cooking")
     else:
         print(f'recipe : \'{recipeName}\' does not exist in the cookbook.')
 
