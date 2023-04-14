@@ -23,7 +23,7 @@ cookbook = {
 }
 # A function that print all recipe names.
 def printRecipeNames():
-    print('Print the cookbook')
+    print('The cookbook contains :')
     for x in cookbook:
         print(x)
 
