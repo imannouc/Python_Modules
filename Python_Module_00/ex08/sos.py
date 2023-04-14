@@ -24,6 +24,6 @@ if __name__ == '__main__':
     if not all(c.isalnum() or c == ' ' for c in str):
         print('ERROR: Enter a string containing alphanumeric characters and/or space only.')
         exit()
-    print(str)
+    str = str.upper()
     s = map(lambda x : morse_code[x], str)
-    print(list(s))
+    print(' '.join(s))
