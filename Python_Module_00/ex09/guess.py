@@ -2,8 +2,6 @@ import sys,random
 
 if __name__ == '__main__':
     number = random.randint(1, 99)
-    while (number != 42):
-        number = random.randint(1, 99)
     print("This is an interactive guessing game!")
     print("You have to enter a number between 1 and 99 to find out the secret number.")
     print("Type 'exit' to end the game.")
