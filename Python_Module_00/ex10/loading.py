@@ -17,7 +17,8 @@ def ft_progress(lst):
         progressBar = f"[{'=' * (round(((i + 1) / total) * 100))}>{' ' *(100 - round(((i + 1) / total) * 100))}]"
         if ( i != 0 ):
             eta = (elapsed / (i)) * (total - i)
-        print(f"\rETA: {round(eta,2):>5.2f}s [{round(((i + 1) / total) * 100):>3}%] {progressBar} {i + 1:>{len(str(total))}}/{total:>{len(str(total))}} | elapsed time {round(elapsed,2):>5.2f}s",end='')
+        print(f"ETA: {round(eta,2):>5.2f}s [{round(((i + 1) / total) * 100):>3}%] {progressBar} {i + 1:>{len(str(total))}}/{total:>{len(str(total))}} | elapsed time {round(elapsed,2):>5.2f}s",end='')
+        print('',end='\r')
         yield item
 
 listy = range(1000)
