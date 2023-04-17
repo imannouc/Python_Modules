@@ -1,9 +1,3 @@
-recipe = {
-    'ingredients' : [],
-    'meal' : '',
-    'prep_time' : 10,
-}
-
 cookbook = {
     'Sandwich' : {
         'ingredients' : ['ham', 'bread', 'cheese','tomatoes'],
@@ -45,6 +39,7 @@ def printRecipeDetailsHelper():
 def deleteRecipe(recipeName):
     if recipeName in cookbook:
         cookbook.pop(recipeName)
+        print(f'recipe \'{recipeName}\' deleted successfully')
     else:
         print(f'recipe : \'{recipeName}\' does not exist in the cookbook.')
 
@@ -56,15 +51,32 @@ def deleteRecipeHelper():
 # A function that add a recipe from user input.
 def addRecipe():
     print('Add a recipe')
-    name = input('>>> Enter a name:\n')
+    while True :
+        name = input('>>> Enter a name:\n')
+        if (name == ''):
+            print('recipe name cannot be an empty string')
+        elif (name in cookbook):
+            print(f'recipe \'{name}\' already exists')
+        else:
+            break
     print('>>> Enter ingredients:')
     ingredients = []
-    while (1):
+    while True:
         ingredient = input('')
         if ( ingredient == '' ): break
         ingredients.append(ingredient)
-    meal = input('>>> Enter a meal type:\n')
-    prep_time = input('>>> Enter a preparation time:\n')
+    while True :
+        meal = input('>>> Enter a meal type:\n')
+        if (meal == ''):
+            print('meal type cannot be an empty string')
+        else:
+            break
+    while True:
+        prep_time = input('>>> Enter a preparation time:\n')
+        if (not prep_time.isdigit()):
+            print("preparation time must be a non-negative integer representing a time in minutes")
+        else:
+            break
     cookbook[name] = {'ingredients' : ingredients,'meal' : meal ,'prep_time' : prep_time}
     print(f'recipe \'{name}\' added successfully')
 
@@ -102,6 +114,7 @@ if __name__ == '__main__':
                 actions[int(choice) - 1]()
         else:
             print('Sorry, this option does not exist.')
+            promptMenu()
 
 # 1: Add a recipe
 # 2: Delete a recipe

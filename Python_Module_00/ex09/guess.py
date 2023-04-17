@@ -17,6 +17,7 @@ if __name__ == '__main__':
             assert guess.isnumeric()
         except AssertionError:
             print("That's not a number.")
+            trials += 1
             continue
         if (int(guess) > number):
             print("Too high !")

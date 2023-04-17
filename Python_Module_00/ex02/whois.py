@@ -10,7 +10,7 @@ except AssertionError:
     print('AssertionError: argument is not an integer')
     exit()
 
-if (sys.argv[1] == '0'):
+if (int(sys.argv[1]) == 0):
     print("I'm Zero.")
 elif (int(sys.argv[1]) % 2 == 0):
     print("I'm Even.")

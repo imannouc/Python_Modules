@@ -8,12 +8,16 @@ if __name__ == '__main__':
     elif (ac > 3):
         print('AssertionError: too many arguments')
         exit()
-    elif (ac == 3 and not(sys.argv[1].isnumeric() and sys.argv[2].isnumeric())):
+    elif (ac == 3 and not(sys.argv[1].lstrip('-+').isnumeric() and sys.argv[2].lstrip('-+').isnumeric())):
         print('AssertionError: only integers')
         exit()
     # print(type(sys.argv[1]).__name__)
-    A = int(sys.argv[1])
-    B = int(sys.argv[2])
+    try:
+        A = int(sys.argv[1])
+        B = int(sys.argv[2])
+    except ValueError:
+        print('AssertionError: only integers')
+        exit()
     print('Sum:', A + B)
     print('Difference:', A - B)
     print('Product:', A * B)
